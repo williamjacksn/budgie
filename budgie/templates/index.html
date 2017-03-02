@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Budgie.</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{{ url_for('index') }}">Budgie.</a>
+            <p class="navbar-text navbar-right">{{ today.strftime('%a, %b') }} {{ today.day }}</p>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <table class="table table-bordered">
+                <tbody>
+                <tr>
+                    {% for day in week %}
+                        <td class="text-center{% if day == today %} bg-info{% endif %}">{{ day.day }}</td>
+                    {% endfor %}
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-default"><h1 class="text-center">$400.00 left</h1></div>
+        </div>
+    </div>
+    {% block content %}
+    <div class="row">
+        <div class="col-xs-12">
+            <a class="btn btn-block btn-success" href="{{ url_for('add_transaction') }}"><strong>+</strong></a>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 10px">
+        <div class="col-xs-12">
+            <table class="table">
+                <tbody>
+                <tr><td>Jul 7</td><td>$123.45</td><td>groceries</td></tr>
+                <tr><td>Jul 7</td><td>$123.45</td><td>groceries</td></tr>
+                <tr><td>Jul 7</td><td>$123.45</td><td>groceries</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endblock %}
+</div>
+<script src="{{ url_for('static', filename='js/jquery-2.2.4.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>

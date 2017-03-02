@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-xs-12">
+            <form method="post">
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input class="form-control" type="date" name="date" id="date" value="{{ today }}">
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">$</div>
+                        <input class="form-control" type="number" step="any" name="amount" id="amount">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Comment</label>
+                    <input class="form-control" type="text" name="comment" id="comment">
+                </div>
+                <button class="btn btn-success btn-block" type="submit">+</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
